@@ -55,8 +55,8 @@ public class OrderTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Order - success")
-    public void testOrder_success() {
+    @DisplayName("test Order")
+    public void testOrder() {
         given()
                 .header("Content-type", "application/json")
                 .and()

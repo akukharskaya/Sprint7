@@ -14,8 +14,8 @@ import static ru.praktikum.CourierHelper.*;
 public class CourierTest extends BaseTest {
     //Тесты на регистрацию
     @Test
-    @DisplayName("Create Courier - success")
-    public void testCreateCourier_success() {
+    @DisplayName("Create Courier")
+    public void testCreateCourier() {
         var courier = randomCourier();
 
         create(courier)
@@ -28,8 +28,8 @@ public class CourierTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Create Courier - fail If Courier Exists")
-    public void testCreateCourier_failIfCourierExists() {
+    @DisplayName("Create Courier Exists")
+    public void testCreateCourierExists() {
         var courier = randomCourier();
         create(courier);
 
@@ -40,8 +40,8 @@ public class CourierTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Create Courier - fail On Empty Login In Registration")
-    public void testCreateCourier_failOnEmptyLoginInRegistration() {
+    @DisplayName("Create Courier With Empty Login In Registration")
+    public void testCreateCourieWithEmptyLoginInRegistration() {
         Courier courier = new Courier("", "_", "_");
 
         ValidatableResponse response =
@@ -58,8 +58,8 @@ public class CourierTest extends BaseTest {
 
     //Тесты на авторизацию
     @Test
-    @DisplayName("Login - success")
-    public void testLogin_success() {
+    @DisplayName("Login")
+    public void testLogin() {
         Courier courier = getExistingCourier();
 
         login(courier)
@@ -70,8 +70,8 @@ public class CourierTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Login - fail On Incorrect Password")
-    public void testLogin_failOnIncorrectPassword() {
+    @DisplayName("Login With Incorrect Password")
+    public void testLoginWithIncorrectPassword() {
         Courier courier = getExistingCourier();
         courier.setPassword("wrong pass");
 
@@ -82,8 +82,8 @@ public class CourierTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Login - fail On Login Is Empty")
-    public void testLogin_failOnLoginIsEmpty() {
+    @DisplayName("Login With Login Is Empty")
+    public void testLoginWithLoginIsEmpty() {
         Courier courier = getExistingCourier();
         courier.setLogin("");
 
@@ -94,8 +94,8 @@ public class CourierTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Login fail On Courier Not Exists")
-    public void testLogin_failOnCourierNotExists() {
+    @DisplayName("Login On Courier Not Exists")
+    public void testLoginOnCourierNotExists() {
         Courier courier = randomCourier();
 
         ValidatableResponse response = login(courier)
